@@ -4,15 +4,13 @@
  */
 package mfiari.ecoledemagie.game.texte.fr;
 
-import mfiari.ecoledemagie.game.texte.TexteVueDuel;
-
 /**
  *
  * @author mike
  */
-public class TexteVueDuel_fr extends TexteVueDuel {
+public class TexteVueDuel extends mfiari.ecoledemagie.game.texte.TexteVueDuel {
     
-    public TexteVueDuel_fr () {
+    public TexteVueDuel () {
         this.suivant = "next";
     }
 }

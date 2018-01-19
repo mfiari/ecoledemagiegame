@@ -31,6 +31,7 @@ public class Duel extends ControlleurVue {
     private boolean confirmation;
 
     public Duel() {
+        super(true);
         this.creationPerso = new CreationPerso(this);
         this.creationObjet = new CreationObjet ();
         this.creationTechnique = new CreationTechnique ();

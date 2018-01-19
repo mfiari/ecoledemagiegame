@@ -47,6 +47,7 @@ public class VueSwing_demarrage extends VueSwing {
     
     public VueSwing_demarrage (Demarrage demarage) {
         super(TexteVueDemarrage.getInstance(), demarage);
+        System.out.println("VueSwing_demarrage construct");
         this.demarrage = demarage;
         this.imageUtil = new ImageUtil();
         this.textes = TexteVueDemarrage.getInstance();
@@ -91,6 +92,7 @@ public class VueSwing_demarrage extends VueSwing {
     }
 
     public void choixLangue() {
+        System.out.println("choixLangue");
         JPanel panel2 = new JPanel ();
         ListKeyAction actions = new ListKeyAction();
         actions.addKeyAction(CodeBouton.GAUCHE, ActionPerso.DECREMENTE);

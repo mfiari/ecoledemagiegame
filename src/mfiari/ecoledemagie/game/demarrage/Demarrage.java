@@ -94,7 +94,7 @@ public class Demarrage extends ControlleurVue {
     public void nouvellePartie() {
         this.choixEquipe();
         this.creationPerso = new CreationPerso(this.equipeDuPerso);
-        this.sac = new Sac();
+        //this.sac = new Sac();
         this.equipe = this.creationPerso.getEquipe();
         this.carte = this.creationVille.getEndroit();
         this.creationEvenement = new CreationEvenement(this.equipe.getPerso(0));
@@ -186,6 +186,7 @@ public class Demarrage extends ControlleurVue {
     }
 
     public void extra() {
+        System.out.println("extra dem");
         MenuExtra m = new MenuExtra ();
         m.menu();
     }

@@ -47,7 +47,7 @@ public class Personnage extends Perso {
         this.accessoire1 = null;
         this.accessoire2 = null;
         this.techniques=new ListeDeSort();
-        this.sac = new Sac();
+        //this.sac = new Sac();
     }
     
     public Personnage (Personnage perso) {

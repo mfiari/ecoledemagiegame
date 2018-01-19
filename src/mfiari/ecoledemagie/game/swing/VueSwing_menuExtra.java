@@ -33,6 +33,7 @@ public class VueSwing_menuExtra extends VueSwing {
 
     public VueSwing_menuExtra(MenuExtra menu) {
         super(TexteVueMenuExtra.getInstance(), menu);
+        System.out.println("VueSwing_menuExtra construct");
         this.menu = menu;
         this.imageUtil = new ImageUtil();
         this.textes = TexteVueMenuExtra.getInstance();
@@ -46,6 +47,7 @@ public class VueSwing_menuExtra extends VueSwing {
         this.menu.ajouterEcouteur(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
+                System.out.println(evt.getPropertyName());
                 if (evt.getPropertyName().equals("actualiseLangue")) {
                     actualiseLangue();
                 } else {
@@ -68,6 +70,7 @@ public class VueSwing_menuExtra extends VueSwing {
    }
     
     private void afficherMenu() {
+        System.out.println("VueSwing_menuExtra afficherMenu");
         JPanel panel2 = new JPanel ();
         BoutonImage boutonLigne = new BoutonImage(this.textes.ligne, this.imageUtil.getImageEnLigne());
         boutonLigne.addActionListener(new boutonChoix(2));

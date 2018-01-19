@@ -4,15 +4,13 @@
  */
 package mfiari.ecoledemagie.game.texte.fr;
 
-import mfiari.ecoledemagie.game.texte.TexteVueMenuExtra;
-
 /**
  *
  * @author mike
  */
-public class TexteVueMenuExtra_fr extends TexteVueMenuExtra {
+public class TexteVueMenuExtra extends mfiari.ecoledemagie.game.texte.TexteVueMenuExtra {
     
-    public TexteVueMenuExtra_fr () {
+    public TexteVueMenuExtra () {
         this.suivant = "suivant";
         this.ligne = "ligne";
         this.duel = "duel";

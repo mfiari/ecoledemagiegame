@@ -17,10 +17,11 @@ import mfiari.lib.game.texte.Texte;
 public class MenuExtra extends ControlleurVue {
 
     public MenuExtra() {
-        
+        super(true);
     }
     
     public void menu () {
+        System.out.println("MenuExtra menu");
         do {
             this.pcsControlleurVue.firePropertyChange("afficherMenu", null, null);
             switch (choix) {
