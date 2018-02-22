@@ -26,12 +26,14 @@ public class Salle extends Batiments {
         super();
         this.personnages = new ListeDePerso<>();
         this.ennemies = new ListeDePerso<>();
+        this.habitants = new ListeDeGens<>();
     }
 
     public Salle (String nom, int positionX, int positionY,int longueur, int largeur) {
         super(nom, positionX, positionY, longueur, largeur, 0, 0);
         this.personnages = new ListeDePerso<>();
         this.ennemies = new ListeDePerso<>();
+        this.habitants = new ListeDeGens<>();
     }
 
     @Override

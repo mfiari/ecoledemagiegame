@@ -6,7 +6,7 @@
 package mfiari.ecoledemagie.game;
 
 import mfiari.ecoledemagie.game.connexionBD.CreationBase;
-import mfiari.ecoledemagie.game.demarrage.Demarrage;
+import mfiari.ecoledemagie.game.controller.Demarrage;
 import mfiari.lib.game.connexionBD.ConnexionBD;
 import mfiari.lib.game.swing.Ecran;
 

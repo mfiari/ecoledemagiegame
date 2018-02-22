@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<endroit largeur="10" longueur="10" nom="entree foret entrainement" positionx="0" positiony="0" type="route">
+<sol type="herbe"/>
+<objet_endroits>
+<objet_endroit positionx="0" positiony="9" type="arbre"/>
+<objet_endroit positionx="1" positiony="9" type="arbre"/>
+<objet_endroit positionx="2" positiony="9" type="arbre"/>
+<objet_endroit positionx="3" positiony="9" type="arbre"/>
+<objet_endroit positionx="4" positiony="9" type="arbre"/>
+<objet_endroit positionx="5" positiony="9" type="arbre"/>
+</objet_endroits>
+<batiments/>
+<gens/>
+</endroit>

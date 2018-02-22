@@ -4,7 +4,6 @@
  */
 package mfiari.ecoledemagie.game.swing;
 
-import mfiari.ecoledemagie.game.demarrage.Demarrage;
 import mfiari.ecoledemagie.game.media.image.util.ImageUtil;
 import mfiari.ecoledemagie.game.perso.Equipe;
 import mfiari.ecoledemagie.game.perso.Personnages;
@@ -21,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import mfiari.ecoledemagie.game.controller.Demarrage;
 import mfiari.lib.video.Video;
 import mfiari.lib.game.clavier.ActionPerso;
 import mfiari.lib.game.clavier.CodeBouton;

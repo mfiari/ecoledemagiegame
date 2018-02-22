@@ -4,6 +4,20 @@
  */
 package mfiari.ecoledemagie.game.demarrage;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import mfiari.ecoledemagie.game.EcoleDeMagie;
 import mfiari.ecoledemagie.game.objet.ObjetEndroitSoin;
 import mfiari.ecoledemagie.game.objet.Type_objet;
@@ -11,10 +25,14 @@ import mfiari.ecoledemagie.game.ville.Endroits;
 import mfiari.ecoledemagie.game.ville.Environnement;
 import mfiari.ecoledemagie.game.ville.Sol;
 import mfiari.lib.game.liste.ListeDEndroit;
+import mfiari.lib.game.objet.ObjetEndroit;
 import mfiari.lib.game.objet.ObjetEndroitClassique;
 import mfiari.lib.game.objet.ObjetEndroitPassage;
+import mfiari.lib.game.personnage.Gens;
 import mfiari.lib.game.position.Orientation;
 import mfiari.lib.game.position.Position;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -600,6 +618,114 @@ public class CreationVille {
 
     public ListeDEndroit getEndroit () {
         return this.carte;
+    }
+    
+    public void createXMLFile () {
+        ListeDEndroit endroits = new ListeDEndroit();
+        endroits.ajouterEndroit(Endroits.entree_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_1_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_2_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_3_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_4_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_5_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_6_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_7_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_8_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_9_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_10_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_11_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_12_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_13_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_14_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_15_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.niveau0_16_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.sortie_foret_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.quartierParc_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.sous_sol_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.rdc_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.salle_des_prof_rdc_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.salle_a_manger_rdc_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.salle_des_fete_rdc_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.etage1_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.etage2_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.etage3_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.etage4_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.etage5_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.tour_astronomie_chateau_quartierEcole_magicoli_zoneEcole_zoneMagicoli_continent);
+        endroits.ajouterEndroit(Endroits.quartierVillage_magicoli_zoneEcole_zoneMagicoli_continent);
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = factory.newDocumentBuilder();
+            
+            for (int k = 0 ; k < endroits.size() ; k++) {
+                mfiari.lib.game.ville.Endroit e = (mfiari.lib.game.ville.Endroit) endroits.getEndroit(k);
+                Document doc = db.newDocument();
+                Element endroitElement = doc.createElement("endroit");
+                endroitElement.setAttribute("nom", e.getNom());
+                endroitElement.setAttribute("longueur", String.valueOf(e.getLongueur()));
+                endroitElement.setAttribute("largeur", String.valueOf(e.getLongueur()));
+                endroitElement.setAttribute("positionx", String.valueOf(e.getPosition().getPositionX()));
+                endroitElement.setAttribute("positiony", String.valueOf(e.getPosition().getPositionY()));
+                endroitElement.setAttribute("type", "route");
+                /*endroitElement.setAttribute("terrain", e.getTerrain().getType().toString());*/
+                
+                Element solElement = doc.createElement("sol");
+                solElement.setAttribute("type", "herbe");
+                endroitElement.appendChild(solElement);
+                
+                Element objetEndroitsElement = doc.createElement("objet_endroits");
+                Element batimentsElement = doc.createElement("batiments");
+                Element gensElement = doc.createElement("gens");
+                for (int i = 0; i < e.getLargeur(); i++) {
+                    for (int j = 0; j < e.getLongueur(); j++) {
+                        Position p = new Position(i, j);
+                        if (e.aEndroit(p) != null) {
+                            mfiari.lib.game.ville.Endroit batiment = (mfiari.lib.game.ville.Endroit)e.aEndroit(p);
+                            Element batimentElement = doc.createElement("batiment");
+                            /*batimentElement.setAttribute("type", this.getNomImageBatimentByClass(batiment));*/
+                            batimentElement.setAttribute("positionx", String.valueOf(p.getPositionX()));
+                            batimentElement.setAttribute("positiony", String.valueOf(p.getPositionY()));
+                            batimentsElement.appendChild(batimentElement);
+                        } else if (e.aGens(p) != null) {
+                            Gens gens = e.aGens(p);
+                            Element habitantElement = doc.createElement("habitant");
+                            habitantElement.setAttribute("nom", gens.getNom());
+                            habitantElement.setAttribute("positionx", String.valueOf(p.getPositionX()));
+                            habitantElement.setAttribute("positiony", String.valueOf(p.getPositionY()));
+                            gensElement.appendChild(habitantElement);
+                        } else if (e.aObjetEndroit(p) != null) {
+                            ObjetEndroit objet_endroit = e.aObjetEndroit(p);
+                            Element objetEndroitElement = doc.createElement("objet_endroit");
+                            objetEndroitElement.setAttribute("type", objet_endroit.getType().toString());
+                            objetEndroitElement.setAttribute("positionx", String.valueOf(p.getPositionX()));
+                            objetEndroitElement.setAttribute("positiony", String.valueOf(p.getPositionY()));
+                            objetEndroitsElement.appendChild(objetEndroitElement);
+                        }
+                    }
+                }
+                endroitElement.appendChild(objetEndroitsElement);
+                endroitElement.appendChild(batimentsElement);
+                endroitElement.appendChild(gensElement);
+                doc.appendChild(endroitElement);
+                
+                FileWriter fileWriter = new FileWriter(new File("media/endroits/"+k+".xml"));
+                TransformerFactory tf = TransformerFactory.newInstance();
+                Transformer transformer = tf.newTransformer();
+                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+                transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
+                transformer.transform(new DOMSource(doc), new StreamResult(fileWriter));
+            }
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(CreationVille.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException | TransformerException ex) {
+            throw new RuntimeException("Error converting to String", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CreationVille.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
