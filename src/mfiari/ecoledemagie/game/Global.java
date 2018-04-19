@@ -18,4 +18,7 @@ public class Global {
     public static String hsqlUser = "sa";
     public static String hsqlMdp = "";
     
+    public static String webserviceLogin = "mokratos";
+    public static String webserviceMdp = "mangadbz";
+    
 }
